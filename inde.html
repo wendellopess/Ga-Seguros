@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GA Seguros - Gabriel Alexandre Corretora de Seguros</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b35, #ffa726);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 70%, #ff6b35 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(2deg);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: slideInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b35, #ff8f00);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b35, #ff8f00);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+           /* -webkit-text-fill-color: transparent; */
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            padding: 5rem 2rem;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .about-text h2::after {
+            margin: 1rem 0;
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .map-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff6b35;
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+            color: white;
+            padding: 5rem 2rem;
+        }
+
+        .contact-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ff8f00;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            width: 40px;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(45deg, #ff6b35, #ff8f00);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        /* WhatsApp Section */
+        .whatsapp-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .whatsapp-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ff8f00;
+        }
+
+        .whatsapp-section p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .whatsapp-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            background: rgba(37, 211, 102, 0.15);
+            border: 2px solid #25d366;
+            border-radius: 15px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .whatsapp-btn:hover::before {
+            left: 100%;
+        }
+
+        .whatsapp-btn:hover {
+            background: rgba(37, 211, 102, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3);
+            border-color: #20c458;
+        }
+
+        .whatsapp-icon {
+            font-size: 2.5rem;
+            margin-right: 1.5rem;
+            width: 60px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .whatsapp-content {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .whatsapp-content strong {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: #25d366;
+        }
+
+        .whatsapp-content small {
+            display: block;
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        .whatsapp-arrow {
+            font-size: 1.5rem;
+            color: #25d366;
+            margin-left: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-btn:hover .whatsapp-arrow {
+            transform: translateX(5px);
+        }
+
+        .whatsapp-footer {
+            background: rgba(255, 143, 0, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 143, 0, 0.3);
+        }
+
+        .whatsapp-footer p {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .whatsapp-footer p:last-child {
+            margin-bottom: 0;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-buttons {
+                gap: 1rem;
+            }
+
+            .whatsapp-btn {
+                padding: 1.2rem;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .whatsapp-icon {
+                font-size: 2rem;
+                width: auto;
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+
+            .whatsapp-content {
+                text-align: center;
+            }
+
+            .whatsapp-arrow {
+                display: none;
+            }
+
+            .whatsapp-section {
+                padding: 2rem;
+            }
+        }
+
+        /* Floating elements animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">GA Seguros</div>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Gabriel Alexandre Seguros</h1>
+            <p>Sua proteção é nossa especialidade. Oferecemos as melhores soluções em seguros para proteger o que mais
+                importa para você e sua família.</p>
+            <a href="#contact" class="cta-button">Faça sua Cotação</a>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <h2>Nossos Serviços</h2>
+        <div class="services-grid">
+            <div class="service-card floating">
+                <div class="service-icon">🚗</div>
+                <h3>Seguro Auto</h3>
+                <p>Proteção completa para seu veículo com as melhores seguradoras do mercado. Cobertura contra roubo,
+                    furto, colisão e muito mais.</p>
+            </div>
+            <div class="service-card floating">
+                <div class="service-icon">🏠</div>
+                <h3>Seguro Residencial</h3>
+                <p>Proteja seu lar e seus bens com nossos seguros residenciais. Cobertura contra incêndio, roubo e
+                    assistência 24h.</p>
+            </div>
+            <div class="service-card floating">
+                <div class="service-icon">❤️</div>
+                <h3>Seguro de Vida</h3>
+                <p>Garanta a segurança financeira da sua família com nossos planos de seguro de vida personalizados.</p>
+            </div>
+            <div class="service-card floating">
+                <div class="service-icon">🏢</div>
+                <h3>Seguro Empresarial</h3>
+                <p>Soluções completas para proteger seu negócio. Responsabilidade civil, equipamentos e muito mais.</p>
+            </div>
+            <div class="service-card floating">
+                <div class="service-icon">🏥</div>
+                <h3>Seguro Saúde</h3>
+                <p>Planos de saúde individuais e familiares com ampla rede credenciada e atendimento de qualidade.</p>
+            </div>
+            <div class="service-card floating">
+                <div class="service-icon">✈️</div>
+                <h3>Seguro Viagem</h3>
+                <p>Viaje com tranquilidade. Cobertura médica, bagagem e cancelamento para destinos nacionais e
+                    internacionais.</p>
+            </div>
+            <div class="service-card floating">
+                <div class="service-icon">🔥</div>
+                <h3>Seguro Incêndio</h3>
+                <p>Proteção completa contra incêndios, explosões e raios. Cobertura para danos materiais e lucros
+                    cessantes.</p>
+            </div>
+            <div class="service-card floating">
+                <div class="service-icon">⚙️</div>
+                <h3>Seguro Maquinário</h3>
+                <p>Proteção para equipamentos industriais e maquinários. Cobertura contra quebra acidental,
+                    curto-circuito e mais.</p>
+            </div>
+            <div class="service-card floating">
+                <div class="service-icon">📱</div>
+                <h3>Seguro Eletrônicos</h3>
+                <p>Proteja seus equipamentos eletrônicos contra roubo, furto, danos acidentais e problemas elétricos.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Sobre a GA Seguros</h2>
+                <p>A Gabriel Alexandre Corretora de Seguros LTDA atua há mais de uma década no mercado, consolidando-se como referência em excelência no atendimento e na oferta de soluções completas em seguros e planos de saúde.</p>
+                <p>Trabalhamos com as melhores seguradoras e operadoras do país, como Bradesco Seguros, Porto Seguro, SulAmérica, Allianz, Tokio Marine, Sompo, Amil, Unimed, NotreDame Intermédica, Hapvida, entre outras. Isso nos permite oferecer aos nossos clientes as opções mais seguras, vantajosas e adequadas às suas necessidades.</p>
+                    <p>Nossa missão é proporcionar segurança e tranquilidade, com atendimento personalizado, condições competitivas e o compromisso de sempre apresentar as melhores alternativas do mercado.</p>
+
+        
+                <div class="about-stats">
+                    <div class="stat">
+                        <span class="stat-number">10+</span>
+                        <div class="stat-label">Anos de Experiência</div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5000+</span>
+                        <div class="stat-label">Clientes Satisfeitos</div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">15+</span>
+                        <div class="stat-label">Seguradoras Parceiras</div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24h</span>
+                        <div class="stat-label">Suporte Disponível</div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.2445234567!2d-46.78234568501534!3d-23.532667584689123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ceff7a7f7b7c1b%3A0x1234567890abcdef!2sR.%20Narciso%20Sturlini%2C%20302%20-%20Centro%2C%20Osasco%20-%20SP%2C%2006018-095!5e0!3m2!1spt-BR!2sbr!4v1640995200000!5m2!1spt-BR!2sbr"
+                        width="100%" height="400"
+                        style="border: none; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.2);"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <section id="contact" class="contact">
+        <div class="contact-content">
+            <div class="contact-info">
+                <h2>Entre em Contato</h2>
+                <p>Estamos aqui para ajudar você a encontrar a melhor proteção. Entre em contato conosco!</p>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <h3>Telefone</h3>
+                        <p>(11) 9999-9999</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <h3>Email</h3>
+                        <p>contato@gaseguros.com.br</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h3>Endereço</h3>
+                        <p>R. Narciso Sturlini, 302<br>Centro - Osasco/SP<br>CEP: 06018-095</p>
+                    </div>
+                </div>
+            </div>
+            <div class="whatsapp-section">
+                <h3>💬 WhatsApp Especializado</h3>
+                <p>Fale diretamente com nossos especialistas via WhatsApp para cada tipo de seguro:</p>
+
+                <div class="whatsapp-buttons">
+                    <a href="https://wa.me/5511999999999?text=Olá! Gostaria de uma cotação para seguro residencial."
+                        class="whatsapp-btn" target="_blank">
+                        <div class="whatsapp-icon">🏠</div>
+                        <div class="whatsapp-content">
+                            <strong>Seguro Residencial</strong>
+                            <small>Proteção completa para seu lar</small>
+                        </div>
+                        <div class="whatsapp-arrow">→</div>
+                    </a>
+
+                    <a href="https://wa.me/5511888888888?text=Olá! Gostaria de uma cotação para seguro de automóvel."
+                        class="whatsapp-btn" target="_blank">
+                        <div class="whatsapp-icon">🚗</div>
+                        <div class="whatsapp-content">
+                            <strong>Seguro de Automóveis</strong>
+                            <small>Cobertura total para seu veículo</small>
+                        </div>
+                        <div class="whatsapp-arrow">→</div>
+                    </a>
+
+                    <a href="https://wa.me/5511777777777?text=Olá! Gostaria de informações sobre planos de saúde e odontológico."
+                        class="whatsapp-btn" target="_blank">
+                        <div class="whatsapp-icon">🏥</div>
+                        <div class="whatsapp-content">
+                            <strong>Planos de Saúde e Odontológico</strong>
+                            <small>Cuidado com sua saúde e família</small>
+                        </div>
+                        <div class="whatsapp-arrow">→</div>
+                    </a>
+
+                    <a href="https://wa.me/5511666666666?text=Olá! Gostaria de informações sobre outros tipos de seguros."
+                        class="whatsapp-btn" target="_blank">
+                        <div class="whatsapp-icon">🛡️</div>
+                        <div class="whatsapp-content">
+                            <strong>Demais Seguros</strong>
+                            <small>Seguro de vida, viagem, empresarial e mais</small>
+                        </div>
+                        <div class="whatsapp-arrow">→</div>
+                    </a>
+                </div>
+
+                <div class="whatsapp-footer">
+                    <p><strong>📱 Resposta rápida garantida!</strong></p>
+                    <p>Nossos especialistas estão prontos para atendê-lo de segunda a sexta, das 8h às 18h.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GA Seguros - Perguntas Frequentes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b35, #ffa726);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255,107,53,0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 8rem 2rem 5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b35, #ff8f00);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* FAQ Section */
+        .faq-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .faq-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .faq-category {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .faq-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 107, 53, 0.1);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-right: 1rem;
+            background: linear-gradient(45deg, #ff6b35, #ffa726);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .category-title {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border-radius: 15px;
+            overflow: hidden;
+            background: rgba(248, 249, 250, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            background: rgba(255, 107, 53, 0.05);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #2c3e50;
+            transition: all 0.3s ease;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .faq-question:hover {
+            color: #ff6b35;
+        }
+
+        .faq-toggle {
+            font-size: 1.2rem;
+            color: #ff6b35;
+            transition: transform 0.3s ease;
+            font-weight: bold;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.9);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 1.5rem;
+            color: #666;
+            line-height: 1.6;
+            border-top: 1px solid rgba(255, 107, 53, 0.1);
+        }
+
+        /* CTA Section within FAQ */
+        .faq-cta {
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faq-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .faq-cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .faq-cta h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ff8f00;
+        }
+
+        .faq-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .whatsapp-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(45deg, #25d366, #20c458);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            margin: 0.5rem;
+        }
+
+        .whatsapp-cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-cta-btn .icon {
+            font-size: 1.3rem;
+            margin-right: 0.8rem;
+        }
+
+        /* Search Box */
+        .faq-search {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1.2rem 1.5rem 1.2rem 3.5rem;
+            border: 2px solid rgba(255, 107, 53, 0.2);
+            border-radius: 50px;
+            font-size: 1rem;
+            background: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #ff6b35;
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ff6b35;
+            font-size: 1.2rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .section {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .faq-categories {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .faq-category {
+                padding: 1.5rem;
+            }
+
+            .category-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .category-icon {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+
+            .faq-question {
+                padding: 1.2rem;
+                font-size: 0.95rem;
+            }
+
+            .faq-answer-content {
+                padding: 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .faq-cta {
+                padding: 2rem;
+                margin-top: 3rem;
+            }
+
+            .faq-cta h3 {
+                font-size: 1.5rem;
+            }
+
+            .whatsapp-cta-btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* Floating elements animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">GA Seguros</div>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#services">Serviços</a></li>
+                
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#contact">Contato</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="faq" class="section">
+        <h2>Perguntas Frequentes</h2>
+        <div class="faq-intro">
+            <p>Esclarecemos as principais dúvidas sobre seguros para que você possa tomar a melhor decisão. Se não encontrar sua pergunta aqui, entre em contato conosco!</p>
+        </div>
+
+     <div class="faq-search">
+        
+            <xd  id="searchInput">
+        </div>
+
+        <div class="faq-categories">
+            <!-- Seguro Auto -->
+            <div class="faq-category floating">
+                <div class="category-header">
+                    <div class="category-icon">🚗</div>
+                    <div class="category-title">Seguro Automóvel</div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        O que cobre o seguro auto básico?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            O seguro auto básico geralmente inclui cobertura contra roubo, furto, colisão, incêndio e fenômenos da natureza. Também pode incluir assistência 24h, guincho e carro reserva, dependendo da apólice escolhida.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Como é calculado o valor do seguro do meu carro?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            O valor é calculado considerando fatores como: modelo e ano do veículo, perfil do condutor (idade, sexo, estado civil), CEP de pernoite, uso do veículo, histórico de sinistros e coberturas escolhidas.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Posso incluir outros condutores na apólice?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Sim! Você pode incluir condutores adicionais na sua apólice. É importante informar todos os condutores habituais para evitar problemas na hora do sinistro. Cada condutor adicional pode influenciar no valor do prêmio.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seguro Residencial -->
+            <div class="faq-category floating">
+                <div class="category-header">
+                    <div class="category-icon">🏠</div>
+                    <div class="category-title">Seguro Residencial</div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        O seguro residencial cobre apartamentos alugados?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Sim! O seguro residencial pode cobrir tanto imóveis próprios quanto alugados. Para inquilinos, recomendamos o seguro do conteúdo e responsabilidade civil. Para proprietários, a cobertura pode incluir estrutura e conteúdo.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Quais danos estão cobertos no seguro residencial?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            As principais coberturas incluem: incêndio, raio, explosão, roubo/furto, danos elétricos, vendaval, granizo, responsabilidade civil familiar e assistência 24h (encanador, eletricista, chaveiro).
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Como fazer o inventário dos bens para o seguro?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Faça uma lista detalhada de todos os bens, incluindo móveis, eletrodomésticos, eletrônicos, roupas e objetos de valor. Tire fotos, guarde notas fiscais e mantenha a lista atualizada. Isso facilitará muito em caso de sinistro.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seguro de Vida -->
+            <div class="faq-category floating">
+                <div class="category-header">
+                    <div class="category-icon">❤️</div>
+                    <div class="category-title">Seguro de Vida</div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Qual a diferença entre seguro de vida e previdência?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            O seguro de vida oferece proteção em caso de morte ou invalidez, pagando indenização aos beneficiários. A previdência é um investimento para aposentadoria. Muitas vezes é recomendável ter ambos para proteção completa.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Quando o seguro de vida não paga indenização?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            O seguro não cobre suicídio nos primeiros 2 anos da apólice, morte por ato doloso do beneficiário, guerra declarada, e uso de entorpecentes. É importante ler atentamente as condições gerais da apólice.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Posso alterar os beneficiários do seguro de vida?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Sim! Você pode alterar os beneficiários a qualquer momento durante a vigência da apólice. Basta solicitar à seguradora. É recomendável manter os dados sempre atualizados, especialmente após mudanças familiares.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Planos de Saúde -->
+            <div class="faq-category floating">
+                <div class="category-header">
+                    <div class="category-icon">🏥</div>
+                    <div class="category-title">Planos de Saúde</div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Qual a diferença entre carência e cobertura parcial?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Carência é o período em que você não tem direito a determinados procedimentos. Cobertura parcial temporária (CPT) permite alguns atendimentos com valor reduzido durante os primeiros 24 meses, aplicável quando há doença preexistente.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Como funciona a portabilidade de carências?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Se você tem um plano há mais de 2 anos, pode trocar de operadora mantendo as carências já cumpridas, desde que não haja interrupção superior a 60 dias. Isso facilita a mudança para planos com melhor custo-benefício.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Posso incluir dependentes no meu plano de saúde?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Sim! Você pode incluir cônjuge, filhos até 21 anos (ou 24 se universitários), pais, sogros e outros dependentes previstos na ANS. Cada operadora tem suas regras específicas para inclusão de dependentes.
+                        </div>
+                    </div>
+                </div>
+            </div>
+ <!-- Seguros Gerais -->
+            <div class="faq-category floating">
+                <div class="category-header">
+                    <div class="category-icon">🛡️ </div>
+                    <div class="category-title">Demais Seguros</div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        O seguro cobre danos à bicicleta durante um acidente?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                           Sim, mas depende do plano contratado. Algumas apólices incluem cobertura para danos acidentais, enquanto outras oferecem apenas proteção contra roubo. Sempre confira os detalhes da cobertura antes de contratar.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                       O seguro de celular cobre queda, tela quebrada, furto e roubo?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                           O seguro de celular pode cobrir queda, tela quebrada, furto e roubo, mas isso depende do tipo de plano e das coberturas contratadas.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                       Quais as coberturas do seguro Incêndio?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                          O seguro incêndio cobre danos causados por fogo, explosões, fumaça e, em alguns planos, fenômenos como queda de raio e curto-circuito.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Geral -->
+            <div class="faq-category floating">
+                <div class="category-header">
+                    <div class="category-icon">❓</div>
+                    <div class="category-title">Dúvidas Gerais</div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Como funciona o pagamento de seguros?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            O prêmio pode ser pago à vista (com desconto) ou parcelado. As opções incluem boleto, cartão de crédito, débito automático e PIX. O pagamento em débito automático geralmente oferece desconto adicional.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        O que acontece se eu atrasar o pagamento?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Há um prazo de tolerância que varia por seguradora (geralmente 30 dias). Após esse período, a apólice pode ser cancelada. Durante o atraso, você fica sem cobertura. É importante quitar o quanto antes para reativar a proteção.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Posso cancelar meu seguro a qualquer momento?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Sim! Você pode cancelar seu seguro a qualquer momento. Se não houve sinistro, você tem direito ao reembolso proporcional do período não utilizado, descontadas as despesas administrativas conforme contrato.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Como fazer uma reclamação ou acionamento?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Entre em contato conosco imediatamente após o sinistro. Providenciaremos toda orientação sobre documentação necessária e acompanharemos o processo junto à seguradora. 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+      
+    </section>
+
+    
+    <script>
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer-content').textContent.toLowerCase();
+
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    // Highlight search term (simple version)
+                    if (searchTerm.length > 2) {
+                        item.style.background = 'rgba(255, 107, 53, 0.1)';
+                    } else {
+                        item.style.background = '';
+                    }
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            // Show/hide categories based on visible items
+            document.querySelectorAll('.faq-category').forEach(category => {
+                const visibleItems = category.querySelectorAll('.faq-item[style*="block"], .faq-item:not([style*="none"])');
+                const hasVisibleItems = Array.from(visibleItems).some(item => 
+                    !item.style.display || item.style.display !== 'none'
+                );
+                
+                category.style.display = hasVisibleItems ? 'block' : 'none';
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(44, 44, 44, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%)';
+            }
+        });
+    </script>
+</body>
+</html>
+
+    <footer>
+        <p>&copy; 2025 Gabriel Alexandre Corretora de Seguros LTDA. Todos os direitos reservados. | Sua proteção, nossa
+            prioridade.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission - removed since form no longer exists
+
+        // Header background on scroll
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(44, 44, 44, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%)';
+            }
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
